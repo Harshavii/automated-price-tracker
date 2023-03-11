@@ -20,12 +20,12 @@ product = soup.find(name="title").getText().split(" ")
 product_name = product[0]+" "+product[1]
 
 import smtplib
-my_email = "lily21042002@gmail.com"
-password = "mngygblqwlidmkqu"
+my_email = "SENDER_MAIL_ID"
+password = "PASSWORD"
 
 if (int(price)<900):
     with smtplib.SMTP("smtp.gmail.com") as connection:
        connection.starttls()
        connection.login(user=my_email,password=password)
-       connection.sendmail(from_addr=my_email,to_addrs="harshavibodkhe@gmail.com",
+       connection.sendmail(from_addr=my_email,to_addrs="RECEIVER_MAIL_ID",
                            msg=f"Subject:Price Drop Alert!!\n\nYour wait is over. {product_name}'s price has finally dropped.\nNow you can purchase it for Rs {price}.\nGo to {link} right now and catch the deal!")
